@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "datadome-module"
+version = "0.1.0"
+description = ""
+authors = ["Ange SOHONE <me@gnango.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+responses = "^0.23.3"
+pytest = "^7.4.2"
+pytest-asyncio = "^0.21.1"
+requests-mock = "^1.11.0"
+pytest-html = "^4.0.2"
+pytest-cov = "^4.1.0"
+pytest-tap = "^3.4"
+pytest-mypy = "^0.10.3"
+ansi2html = "^1.8.0"
+flake8 = "^6.1.0"
+black = "^23.9.1"
+lxml = "^4.9.3"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
