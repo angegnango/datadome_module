@@ -3,10 +3,8 @@
 
 from functools import wraps
 import requests
-from datadome_module.config import get_configs
 import logging
 import time
-from urllib.parse import urljoin
 
 
 LOGGER = logging.getLogger(__name__)
@@ -35,9 +33,8 @@ def check_http_traffic(func):
     """."""
 
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    async def wrapper(*args, **kwargs):
         """."""
-        settings = get_configs()
         request_object = kwargs.get("request")
         request_object.allow_traffic = False
         signals = {
@@ -46,8 +43,7 @@ def check_http_traffic(func):
             "user-agent": request_object.headers.get("User-Agent"),
         }
         try:
-            base_url = settings.get("external-endpoints", "ws.protector_api")
-            url = urljoin(base_url, "check_incomming_http_traffic")
+            url = "http://localhost:8000/check_incomming_http_traffic"
             with requests.Session() as session:
                 response = session.post(
                     url,
@@ -62,7 +58,7 @@ def check_http_traffic(func):
             LOGGER.error(str(exc_info))
             pass
 
-        result = func(*args, **kwargs)
+        result = await func(*args, **kwargs)
 
         return result
 
