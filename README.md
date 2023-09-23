@@ -10,7 +10,7 @@ Datadome module to intercept incomming http traffic
 ### GETTINGS STARTED
 
   1 - Clone the repository
-  ` git clone `
+  ` git clone git@github.com:angegnango/datadome_module.git`
 
   2 - Install dependencies using Poetry
   ` poetry install `
@@ -40,4 +40,4 @@ Datadome module to intercept incomming http traffic
 - use it as remote dependencies from github
 - use as a third party library from pypi
 
-In our case we will use it as local dependencies in our cart_api webservice
+In our case we will install from github repository inside cart_api webservice
