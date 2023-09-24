@@ -38,8 +38,7 @@ def check_http_traffic(func):
         request_object = kwargs.get("request")
         request_object.allow_traffic = False
         signals = {
-            "host": request_object.headers.get("Host"),
-            "client_IP": request_object.client,
+            "host": request_object.client[0],
             "user-agent": request_object.headers.get("User-Agent"),
         }
         try:

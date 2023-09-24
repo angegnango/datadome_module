@@ -14,5 +14,5 @@ def mock_request():
         "client_IP": "127.0.0.1",
         "user-agent": "user-agent-test",
     }
-    mock_request.client = "127.0.0.0"
+    mock_request.client = ("127.0.0.0", "80")
     return mock_request
