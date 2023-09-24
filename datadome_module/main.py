@@ -47,7 +47,7 @@ def check_http_traffic(func):
                 response = session.post(
                     url,
                     data=signals,
-                    headers={"X-Origin": "datadome_module"},
+                    headers={"X-Origin": "datadome_module", "Content-Type":"application/json"},
                 )
                 response.raise_for_status()
                 if response.status_code == 201:
