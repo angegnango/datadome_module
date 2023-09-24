@@ -39,14 +39,14 @@ def check_http_traffic(func):
         request_object.allow_traffic = False
         signals = {
             "host": request_object.client[0],
-            "user-agent": request_object.headers.get("User-Agent"),
+            "user_agent": request_object.headers.get("User-Agent")
         }
         try:
             url = "http://localhost:8000/check_incomming_http_traffic"
             with requests.Session() as session:
                 response = session.post(
                     url,
-                    data=signals,
+                    json=signals,
                     headers={"X-Origin": "datadome_module", "Content-Type":"application/json"},
                 )
                 response.raise_for_status()
